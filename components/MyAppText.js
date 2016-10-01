@@ -7,7 +7,7 @@ export default class MyAppText extends Component {
     }
     render() {
         return (
-            <Text style={styles.textGlobal}>
+            <Text style={styles.textGlobal} ref={component => this._root = component}>
                 {this.props.children}
             </Text>
         )
