@@ -3,16 +3,17 @@ import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-nat
 
 export default class WelcomeScene extends Component {
   static propTypes = {
-    onForward: PropTypes.func.isRequired,
+    onSignIn: PropTypes.func.isRequired,
+    onLogIn: PropTypes.func.isRequired,
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this.props.onForward} style={styles.signInBtn}>
+        <TouchableHighlight onPress={this.props.onSignIn} style={styles.signInBtn}>
           <Text>S'inscrire</Text>
         </TouchableHighlight>
-        <TouchableHighlight onPress={this.props.onForward} style={styles.loginBtn}>
+        <TouchableHighlight onPress={this.props.onLogIn} style={styles.loginBtn}>
           <Text>Se connecter</Text>
         </TouchableHighlight>
       </View>
@@ -23,8 +24,11 @@ export default class WelcomeScene extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "red"
+    alignItems: "flex-end",
+    backgroundColor: "red",
+    paddingBottom: 50
   },
   
 });

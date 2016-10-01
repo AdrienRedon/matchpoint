@@ -37,8 +37,8 @@ class matchpoint extends Component {
           club_id={this.state.club_id}
 
             // Function to call when a new scene should be displayed           
-            onForward={ (club_id) => {    
-              const nextIndex = route.index + 1;
+            onForward={ (club_id, nb=1) => {    
+              const nextIndex = route.index + nb;
               navigator.push({
                 index: nextIndex,
               });

@@ -7,6 +7,7 @@ export default class LoginScene extends Component {
   }
 
   render() {
+    const confirmPwd = (this.props.libBtn == "s'inscrire") ? <TextInput style={{height: 40}} placeholder="Confirm password" secureTextEntry /> : null;
     return (
       <View style={styles.container}>
         <TextInput
@@ -18,8 +19,9 @@ export default class LoginScene extends Component {
           placeholder="Password"
           secureTextEntry
         />
+        {confirmPwd}
         <TouchableHighlight onPress={this.props.onForward} style={styles.loginButton}>
-          <Text>Se connecter</Text>
+          <Text>{this.props.libBtn}</Text>
         </TouchableHighlight>
       </View>
     )
