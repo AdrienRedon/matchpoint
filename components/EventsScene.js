@@ -3,18 +3,43 @@ import { View, StyleSheet, Text, TouchableHighlight } from 'react-native';
 
 export default class EventsScene extends Component {
   static propTypes = {
-    onBack: PropTypes.func.isRequired,
+    onBack: PropTypes.func.isRequired
   }
 
-onBack() {
-  navigator
-}
+  constructor(props) {
+    super(props);
+    this.state = { events: 'chargement en cours...'};
+  }
+
+  componentDidMount() {
+    this.getEvents();
+  }
+
+  getEvents() {
+    fetch('http://localhost:8087/scrape/club/' + this.props.club_id + '/week/2016-10-10', {
+      dataType: 'json',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => response.json())
+      .then((responseJson) => { 
+        console.log(responseJson.championnat);
+        this.setState({events: responseJson.championnat});
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .done();
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <Text>
-          Event
+          Event {this.props.club_id}
+          {this.state.events}
         </Text>
         
         <TouchableHighlight onPress={this.props.onBack}>

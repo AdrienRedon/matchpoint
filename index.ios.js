@@ -19,7 +19,11 @@ class matchpoint extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {index: 0};
+    this.state = {
+      index: 0,
+      club_id: null,
+      events: null
+    };
   }
 
   render() {
@@ -30,15 +34,15 @@ class matchpoint extends Component {
           <MainScene
 
           index={this.state.index}
+          club_id={this.state.club_id}
 
             // Function to call when a new scene should be displayed           
-            onForward={ () => {    
+            onForward={ (club_id) => {    
               const nextIndex = route.index + 1;
               navigator.push({
-                title: 'Club 896',
                 index: nextIndex,
               });
-              this.setState({index: nextIndex});
+              this.setState({index: nextIndex, club_id});
             }}
 
             onBack={ () => {

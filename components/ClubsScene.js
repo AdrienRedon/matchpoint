@@ -9,7 +9,7 @@ export default class ClubsScene extends Component {
     return (
       <View style={styles.container}>
         <Text>Liste des clubs</Text>
-        <TouchableHighlight onPress={this.props.onForward}>
+        <TouchableHighlight onPress={() => this.props.onForward(11623)}>
           <Text>U.S. NANTUATIENNE</Text>
         </TouchableHighlight>
       </View>
