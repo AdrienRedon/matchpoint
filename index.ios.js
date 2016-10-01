@@ -55,9 +55,16 @@ class matchpoint extends Component {
 
           />
         }
+        style={styles.container}
       />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+})
 
 AppRegistry.registerComponent('matchpoint', () => matchpoint);

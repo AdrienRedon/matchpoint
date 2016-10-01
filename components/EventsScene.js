@@ -8,7 +8,7 @@ export default class EventsScene extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { events: 'chargement en cours...'};
+    this.state = { championnat: '', date: '', team1: '', team2: '', score: '' };
   }
 
   componentDidMount() {
@@ -25,8 +25,13 @@ export default class EventsScene extends Component {
     })
       .then((response) => response.json())
       .then((responseJson) => { 
-        console.log(responseJson.championnat);
-        this.setState({events: responseJson.championnat});
+        this.setState({ 
+          championnat: responseJson.championnat, 
+          date: responseJson.date, 
+          team1: responseJson.team1, 
+          team2: responseJson.team2, 
+          score: responseJson.score 
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -39,7 +44,10 @@ export default class EventsScene extends Component {
       <View style={styles.container}>
         <Text>
           Event {this.props.club_id}
-          {this.state.events}
+        </Text>
+
+        <Text>
+          Championnat: {this.state.championnat}
         </Text>
         
         <TouchableHighlight onPress={this.props.onBack}>
