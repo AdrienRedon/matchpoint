@@ -72,9 +72,9 @@ export default class CalendarScene extends Component {
                         <Text style={styles.score}>-</Text>
                         <Image source={require('../assets/ic_team_ext.png')} style={styles.logoExt}></Image>
                     </View>
-                    <View>
-                        <Text>Date: {this.state.date}</Text>
-                        <Text>Team2: {this.state.team2}</Text> 
+                    <View style={styles.date}>
+                        <Text style={styles.grey}>Le {this.state.date}</Text>
+                        <Text style={styles.grey}>Contre <Text style={styles.orange}>{this.state.team1}</Text></Text> 
                     </View>
                 </View>
             </View>
@@ -83,6 +83,15 @@ export default class CalendarScene extends Component {
 }
 
 const styles = StyleSheet.create({
+    grey: {
+        color: "#909090",
+    },
+    orange: {
+        color: "#EC4832",
+    },
+    date: {
+        padding: 10,
+    },
     score: {
         color: "orange",
         fontWeight: "bold",
