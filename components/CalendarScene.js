@@ -60,7 +60,9 @@ export default class CalendarScene extends Component {
                 </Image>
                 <MyAppText style={styles.nextGamesTitle}>PROCHAINS MATCHS</MyAppText>
                 <View style={styles.nextGame}>
-                    
+                    <Text>Date: {this.state.date}</Text>
+                    <Text>Team1: {this.state.team1}</Text>
+                    <Text>Team2: {this.state.team2}</Text> 
                 </View>
             </View>
         );
