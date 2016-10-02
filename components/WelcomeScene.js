@@ -3,7 +3,6 @@ import { Image, StyleSheet, Text, TextInput, TouchableHighlight, View } from 're
 
 import MyAppText from './MyAppText';
 
-
 export default class WelcomeScene extends Component {
   static propTypes = {
     onSignIn: PropTypes.func.isRequired,
@@ -18,7 +17,6 @@ export default class WelcomeScene extends Component {
         <View style={styles.hero}>
           <Image source={require('../assets/ic_logo_txt.png')} style={styles.logoTxt}>
          </Image> 
-         
         </View>
         <View style={styles.container}>
             <TouchableHighlight onPress={this.props.onSignIn} style={[styles.btn, styles.signInBtn]}>
