@@ -10,7 +10,7 @@ export default class CalendarScene extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Header/>
                 <TouchableHighlight onPress={() => this.props.onBack(11623)}>
                     <View style={styles.returnBar}>
@@ -44,6 +44,10 @@ export default class CalendarScene extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "#FAFAFA",
+        flex: 1,
+    },
     returnBar: {
         flexDirection: "row",
         backgroundColor: "#3c414b",
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
         color: "white"
     },
     backImg: {
-        height: 140,
+        height: 120,
         alignSelf: "center",
         resizeMode: "cover",
         justifyContent: "flex-end",

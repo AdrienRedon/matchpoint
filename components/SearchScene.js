@@ -58,13 +58,15 @@ export default class SearchScene extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#FAFAFA",
+    flex: 1,
   },
   subHeader: {
     height: 140,
     alignSelf: "center",
     resizeMode: "cover",
     justifyContent: "flex-end",
-    width: 375,
+    width: 415,
   },
   overlay: {
     height: 90,
@@ -87,7 +89,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#E1E1E1"
+    borderBottomColor: "#E1E1E1",
+    backgroundColor: "white",
   },
   listItemInfo: {
     flex: 1,
