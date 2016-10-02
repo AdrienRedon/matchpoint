@@ -1,13 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { View, StyleSheet, Text, TouchableHighlight } from 'react-native';
+import {Image,View, StyleSheet, Text, TouchableHighlight } from 'react-native';
+import Header from './Header';
 
-export default class ClubsScene extends Component {
+export default class SearchScene extends Component {
   static propTypes = {
     onForward: PropTypes.func.isRequired,
   }
   render() {
     return (
       <View style={styles.container}>
+        <Header/>
+        <Image source={require('../assets/img_home.png')} style={styles.subHeader}>
+          
+        </Image>
         <Text>Liste des clubs</Text>
         <TouchableHighlight onPress={() => this.props.onForward(11623)}>
           <Text>U.S. NANTUATIENNE</Text>
@@ -19,6 +24,11 @@ export default class ClubsScene extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
   },
+  subHeader: {
+    height: 140,
+    alignSelf: "center",
+    resizeMode: "cover",
+  },
+
 });

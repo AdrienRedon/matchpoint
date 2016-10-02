@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, Text, TouchableHighlight } from 'react-native';
 
 import EventsScene from './EventsScene'
-import ClubsScene from './ClubsScene'
+import SearchScene from './SearchScene'
 import LoginScene from './LoginScene'
 import SignInScene from './SignInScene'
 import WelcomeScene from './WelcomeScene'
@@ -19,7 +19,7 @@ export default class MainScene extends Component {
           case 1: return <SignInScene onForward={() => this.props.onForward(null, 2)} onBack={this.props.onBack} />;
           case 2: return <LoginScene onForward={this.props.onForward} onBack={this.props.onBack} />;
           case 3: return <HomeScene onForward={this.props.onForward} onBack={this.props.onBack} />;
-          case 4: return <ClubsScene onForward={this.props.onForward} onBack={this.props.onBack} />;
+          case 4: return <SearchScene onForward={this.props.onForward} onBack={this.props.onBack} />;
           case 5: return <EventsScene club_id={this.props.club_id} onForward={this.props.onForward} onBack={this.props.onBack} />;
           default: return <ClubsScene onForward={this.props.onForward} onBack={this.props.onBack} />;
         }
