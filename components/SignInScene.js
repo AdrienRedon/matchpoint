@@ -15,7 +15,7 @@ export default class LoginScene extends Component {
         </View>
         <View style={styles.container}>
           <MyAppText style={styles.header}>
-            Se connecter
+            S'inscrire
           </MyAppText>
           <TextInput
             style={styles.input}
@@ -26,6 +26,7 @@ export default class LoginScene extends Component {
             placeholder="Mot de passe"
             secureTextEntry
           />
+          <TextInput style={styles.input} placeholder="Confirmer le mot de passe" secureTextEntry />
           <TouchableHighlight onPress={this.props.onForward} style={styles.loginButton}>
             <MyAppText style={styles.loginButtonText}>Go !</MyAppText>
           </TouchableHighlight>
