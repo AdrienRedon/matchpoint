@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import Header from './Header';
 import MyAppText from './MyAppText';
-import { getEvents } from '../utils/api';
+import { getEvents, getClub } from '../utils/api';
 
 export default class CalendarScene extends Component {
     static propTypes = {
@@ -11,7 +11,7 @@ export default class CalendarScene extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { championnat: '', date: '', team1: '', team2: '', score: '' };
+        this.state = { championnat: '', date: '', team1: '', team2: '', score: '', clubName: '' };
      }
 
     componentDidMount() {
@@ -29,6 +29,13 @@ export default class CalendarScene extends Component {
             }).catch((err) => {
                 console.log(err);
             });
+
+        responseJson = getClub(this.props.club_id)
+        .then((responseJson) => { 
+            this.setState({ 
+            clubName: responseJson.name, 
+            });
+        });
     }
 
     render() {
@@ -38,7 +45,7 @@ export default class CalendarScene extends Component {
                 <TouchableHighlight onPress={() => this.props.onBack(11623)}>
                     <View style={styles.returnBar}>
                         <Image source={require('../assets/ic_chevron_l.png')} style={styles.chevron}></Image>
-                        <MyAppText style={styles.returnBarText}>Back to Random Club</MyAppText>
+                        <MyAppText style={styles.returnBarText}>Retour à {this.state.clubName}</MyAppText>
                     </View>
                 </TouchableHighlight>
                 <Image source={require('../assets/img_club.png')} style={styles.backImg}>

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {Image, View, StyleSheet, Text, TouchableHighlight } from 'react-native';
-import { getEvents } from '../utils/api';
+import { getEvents, getClub } from '../utils/api';
 import Header from './Header';
 import MyAppText from './MyAppText';
 
@@ -12,7 +12,7 @@ export default class TeamScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [], championnat: ''
+      list: [], championnat: '', clubName: ''
     }  
   }
 
@@ -24,6 +24,13 @@ export default class TeamScene extends Component {
           championnat: responseJson.championnat, 
         });
     });
+
+    responseJson = getClub(this.props.club_id)
+        .then((responseJson) => { 
+            this.setState({ 
+            clubName: responseJson.name, 
+            });
+        });
   }
 
   loadTeams() {
@@ -51,7 +58,7 @@ export default class TeamScene extends Component {
             <TouchableHighlight onPress={() => this.props.onBack(11623)}>
                 <View style={styles.returnBar}>
                     <Image source={require('../assets/ic_chevron_l.png')} style={styles.chevron}></Image>
-                    <MyAppText style={styles.returnBarText}>Back to Random Club</MyAppText>
+                    <MyAppText style={styles.returnBarText}>Retour</MyAppText>
                 </View>
             </TouchableHighlight>
             <Image source={require('../assets/img_club.png')} style={styles.backImg}>
@@ -60,7 +67,7 @@ export default class TeamScene extends Component {
                         <Image source={require('../assets/ic_team_own.png')} style={styles.logo}></Image>
                     </View>
                     <View style={styles.clubInfoTxt}>
-                        <MyAppText style={styles.clubNameTxt}>The Random Club</MyAppText>
+                        <MyAppText style={styles.clubNameTxt}>{this.state.clubName}</MyAppText>
                         <MyAppText style={styles.clubSportTxt}>Basketball</MyAppText>
                     </View>
                     <TouchableHighlight style={styles.followBtn}>
