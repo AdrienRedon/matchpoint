@@ -23,9 +23,9 @@ export default class SearchScene extends Component {
   }
 
   render() {
-    contents = this.state.list.map((club) => {
+    contents = this.state.list.map((club, i) => {
         return (
-          <TouchableHighlight onPress={() => this.props.onForward(club.id)}>
+          <TouchableHighlight key={i} onPress={() => this.props.onForward(club.id)}>
             <View style={styles.listItem}>
               <Image source={require('../assets/ic_team_own.png')} style={styles.listItemImg}>
               </Image>

@@ -41,9 +41,9 @@ export default class TeamScene extends Component {
   }
 
   render() {
-      contents = this.state.list.map((team) => {
+      contents = this.state.list.map((team, i) => {
         return (
-          <TouchableHighlight onPress={() => this.props.onForward(this.props.club_id)}>
+          <TouchableHighlight key={i} onPress={() => this.props.onForward(this.props.club_id)}>
             <View style={styles.listItem}>
                 <MyAppText style={styles.listItemName}>{team.championnat}</MyAppText>
                 <Image style={styles.chevron} source={require('../assets/ic_chevron_r.png')}>

@@ -11,6 +11,9 @@ export function getEvents(clubId, championnatLabel) {
       }
     })
     .then((response) => response.json())
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 export function getClub(clubId) {
@@ -23,5 +26,8 @@ export function getClub(clubId) {
       }
     })
     .then((response) => response.json())
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
