@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-
+import Header from './Header';
 import MyAppText from './MyAppText';
 
 export default class HomeScene extends Component {
@@ -9,19 +9,22 @@ export default class HomeScene extends Component {
   }
   render() {
     return (      
-      <Image source={require('../assets/img_home.png')} style={styles.wrapper}>
-        <Image source={require('../assets/ic_logo.png')} style={styles.logo}>
+      <View style={styles.wrapper}>
+        <Header/>
+        <Image source={require('../assets/img_home.png')} style={styles.wrapper}>
+          <Image source={require('../assets/ic_logo.png')} style={styles.logo}>
+          </Image>
+          <View style={styles.hero}></View>
+          <View style={styles.container}>
+            <MyAppText style={styles.descriptionText}>
+              Matchpoint description. Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore consectetur dolor.
+            </MyAppText>
+            <TouchableHighlight onPress={() => this.props.onForward(11623)} style={styles.searchBtn}>
+              <MyAppText style={styles.btnTxt}>Rechercher un club</MyAppText>
+            </TouchableHighlight>
+          </View>
         </Image>
-        <View style={styles.hero}></View>
-        <View style={styles.container}>
-          <MyAppText style={styles.descriptionText}>
-            Matchpoint description. Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore consectetur dolor.
-          </MyAppText>
-          <TouchableHighlight onPress={() => this.props.onForward(11623)} style={styles.searchBtn}>
-            <MyAppText style={styles.btnTxt}>Rechercher un club</MyAppText>
-          </TouchableHighlight>
-        </View>
-      </Image>
+      </View>
     )
   }
 }
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
   descriptionText: {
     marginLeft: 40,
     marginRight: 40,
-    marginTop: 50,
+    marginTop: 30,
     flex: 3,
     textAlign: "center",
     color: "white",
