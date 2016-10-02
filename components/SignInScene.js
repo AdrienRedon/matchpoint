@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TextInput, TouchableHighlight, View } from 're
 
 import MyAppText from './MyAppText';
 
-export default class LoginScene extends Component {
+export default class SignInScene extends Component {
   static propTypes = {
     onForward: PropTypes.func.isRequired,
   }
