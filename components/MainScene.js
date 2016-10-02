@@ -17,8 +17,9 @@ export default class MainScene extends Component {
           case 0: return <WelcomeScene onSignIn={() => this.props.onForward(null, 1)} onLogIn={() => this.props.onForward(null, 2)} />;
           case 1: return <SignInScene onForward={() => this.props.onForward(null, 2)} onBack={this.props.onBack} />;
           case 2: return <LoginScene onForward={this.props.onForward} onBack={this.props.onBack} />;
-          case 3: return <ClubsScene onForward={this.props.onForward} onBack={this.props.onBack} />;
-          case 4: return <EventsScene club_id={this.props.club_id} onForward={this.props.onForward} onBack={this.props.onBack} />;
+          case 3: return <HomeScene onForward={this.props.onForward} onBack={this.props.onBack} />;
+          case 4: return <ClubsScene onForward={this.props.onForward} onBack={this.props.onBack} />;
+          case 5: return <EventsScene club_id={this.props.club_id} onForward={this.props.onForward} onBack={this.props.onBack} />;
           default: return <ClubsScene onForward={this.props.onForward} onBack={this.props.onBack} />;
         }
       })()}
