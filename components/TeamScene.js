@@ -68,7 +68,7 @@ export default class TeamScene extends Component {
                     </View>
                     <View style={styles.clubInfoTxt}>
                         <MyAppText style={styles.clubNameTxt}>{this.state.clubName}</MyAppText>
-                        <MyAppText style={styles.clubSportTxt}>Basketball</MyAppText>
+                        <MyAppText style={styles.clubSportTxt}>Football</MyAppText>
                     </View>
                     <TouchableHighlight style={styles.followBtn}>
                         <MyAppText style={styles.followTxt}>Suivre</MyAppText>
