@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -45,11 +39,11 @@ class matchpoint extends Component {
               this.setState({index: nextIndex, club_id});
             }}
 
-            onBack={ () => {
+            onBack={ (club_id) => {
               if (route.index > 0) {
                 const prevIndex = route.index - 1;
                 navigator.pop();
-                this.setState({index: prevIndex});
+                this.setState({index: prevIndex, club_id});
               }
             }}
 

@@ -53,6 +53,9 @@ export default class EventsScene extends Component {
         <TouchableHighlight onPress={this.props.onBack}>
           <Text>Tap me to go back</Text>
         </TouchableHighlight>
+        <TouchableHighlight onPress={this.props.onForward}>
+          <Text>Tap me to go forward</Text>
+        </TouchableHighlight>
       </View>
     )
   }
