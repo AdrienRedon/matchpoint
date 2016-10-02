@@ -6,6 +6,7 @@ import ClubsScene from './ClubsScene'
 import LoginScene from './LoginScene'
 import SignInScene from './SignInScene'
 import WelcomeScene from './WelcomeScene'
+import HomeScene from './HomeScene'
 
 export default class MainScene extends Component {
 
