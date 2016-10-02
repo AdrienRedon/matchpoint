@@ -60,9 +60,15 @@ export default class CalendarScene extends Component {
                 </Image>
                 <MyAppText style={styles.nextGamesTitle}>PROCHAINS MATCHS</MyAppText>
                 <View style={styles.nextGame}>
-                    <Text>Date: {this.state.date}</Text>
-                    <Text>Team1: {this.state.team1}</Text>
-                    <Text>Team2: {this.state.team2}</Text> 
+                    <View style={styles.nextGameHeader}>
+                        <Image source={require('../assets/ic_team_own.png')} style={styles.logoOwn}></Image>
+                        <Text style={styles.score}>-</Text>
+                        <Image source={require('../assets/ic_team_ext.png')} style={styles.logoExt}></Image>
+                    </View>
+                    <View>
+                        <Text>Date: {this.state.date}</Text>
+                        <Text>Team2: {this.state.team2}</Text> 
+                    </View>
                 </View>
             </View>
         );
@@ -70,6 +76,37 @@ export default class CalendarScene extends Component {
 }
 
 const styles = StyleSheet.create({
+    score: {
+        color: "orange",
+        fontWeight: "bold",
+        marginTop: 5,
+    },
+    logoOwn: {
+        height: 33,
+        width: 30,
+    },
+    logoExt: {
+        height: 33,
+        width: 30,
+    },
+    nextGameHeader: {
+        paddingTop: 10,
+        height: 53,
+        backgroundColor: "rgba(50,65,75,0.1)",
+        flexDirection: "row",
+        justifyContent: "space-around",
+    },
+    nextGame: {
+        alignSelf: "center",
+        backgroundColor: "white",
+        width: 355,
+        height: 120,
+        borderRadius: 5,
+        shadowColor: "#C4C4C4",
+        shadowOffset: {height: 2, width: 0},
+        shadowOpacity: 0.8,
+        shadowRadius: 1,
+    },
     container: {
         backgroundColor: "#FAFAFA",
         flex: 1,
