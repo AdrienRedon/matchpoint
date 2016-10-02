@@ -15,6 +15,8 @@ export default class MainScene extends Component {
     return (
       <View style={styles.container}>
         {(() => {
+          //return <CalendarScene onBack={this.props.onBack} />; 
+          
           switch (this.props.index) {
             case 0: return <WelcomeScene onSignIn={() => this.props.onForward(null, 1)} onLogIn={() => this.props.onForward(null, 2)} />;
             case 1: return <SignInScene onForward={() => this.props.onForward(null, 2)} onBack={this.props.onBack} />;
@@ -22,10 +24,12 @@ export default class MainScene extends Component {
             case 3: return <HomeScene onForward={this.props.onForward} onBack={this.props.onBack} />;
             case 4: return <SearchScene onForward={this.props.onForward} onBack={this.props.onBack} />;
             case 5: return <TeamScene club_id={this.props.club_id} onForward={this.props.onForward} onBack={this.props.onBack} />;
-            case 6: return <CalendarScene onBack={this.props.onBack} />; 
+            case 6: return <CalendarScene club_id={this.props.club_id} onBack={this.props.onBack} />; 
             default: return <ClubsScene onForward={this.props.onForward} onBack={this.props.onBack} />;
-        }
+           }
+           
       })()}
+      
       </View>
     )
   }

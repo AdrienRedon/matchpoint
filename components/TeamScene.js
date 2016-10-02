@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {Image, View, StyleSheet, Text, TouchableHighlight } from 'react-native';
-
+import { getEvents } from '../utils/api';
 import Header from './Header';
 import MyAppText from './MyAppText';
 
@@ -12,13 +12,18 @@ export default class TeamScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [], championnat: ''
     }  
   }
 
   componentDidMount() {
     this.loadTeams(); 
-    this.getEvents();
+    let responseJson = getEvents(this.props.club_id)
+      .then((responseJson) => { 
+        this.setState({ 
+          championnat: responseJson.championnat, 
+        });
+    });
   }
 
   loadTeams() {
@@ -28,30 +33,10 @@ export default class TeamScene extends Component {
     ]});
   }
 
-  getEvents() {
-    fetch('http://localhost:8087/scrape/club/' + this.props.club_id + '/week/2016-10-10', {
-      dataType: 'json',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((response) => response.json())
-      .then((responseJson) => { 
-        this.setState({ 
-          championnat: responseJson.championnat
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .done();
-  }
-
   render() {
       contents = this.state.list.map((team) => {
         return (
-          <TouchableHighlight onPress={() => this.props.onForward(team.id)}>
+          <TouchableHighlight onPress={() => this.props.onForward(this.props.club_id)}>
             <View style={styles.listItem}>
                 <MyAppText style={styles.listItemName}>{team.championnat}</MyAppText>
                 <Image style={styles.chevron} source={require('../assets/ic_chevron_r.png')}>
