@@ -10,10 +10,29 @@ export default class SearchScene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      class: "searchInput"
     }
   }
 
+  getClass() {
+    if(this.state.class == "searchInput") {
+      return styles.searchInput;
+    } else if (this.state.class == "searchInputFocus") {
+      return styles.searchInputFocus;
+    }
+  }
+
+  onBlur() {
+    this.setState({
+        class: "searchInput"
+    })
+  }
+  onFocus() {
+    this.setState({
+        class: "searchInputFocus"
+    })
+  }
 
   searchClub(value) {
     this.setState({list: [
@@ -23,7 +42,10 @@ export default class SearchScene extends Component {
   }
 
   render() {
-    contents = this.state.list.map((club, i) => {
+    if(this.state.list.length == 0) {
+      contents = <Text style={styles.instructions}>Veuillez entrer le nom de votre club.</Text>;
+    } else {
+      contents = this.state.list.map((club, i) => {
         return (
           <TouchableHighlight key={i} onPress={() => this.props.onForward(club.id)}>
             <View style={styles.listItem}>
@@ -39,15 +61,19 @@ export default class SearchScene extends Component {
           </TouchableHighlight>
         );
      });
+    }
+    
     return (
       <View style={styles.container}>
         <Header/>
         <Image source={require('../assets/img_home.png')} style={styles.subHeader}>
           <View style={styles.overlay}>
-            <TextInput style={styles.searchInput}
+            <TextInput style={this.getClass()}
                        placeholder="Rechercher un club…"
                        placeholderTextColor="rgba(255, 255, 255, 0.5)"
-                       onSubmitEditing={(value) => this.searchClub(value)} />
+                       onSubmitEditing={(value) => this.searchClub(value)} 
+                       onFocus={ () => this.onFocus() }
+                       onBlur={ () => this.onBlur() }/>
           </View>
         </Image>
         {contents}
@@ -71,7 +97,7 @@ const styles = StyleSheet.create({
   overlay: {
     height: 90,
     backgroundColor: "rgba(26, 39, 53, 0.9)",
-    
+    justifyContent: "center"
   },
   searchInput: {
     borderRadius: 20,
@@ -83,7 +109,17 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     color: "rgba(255, 255, 255, 1)",
     alignSelf: "center",
-    marginTop: 10,
+  },
+  searchInputFocus: {
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "white",
+    backgroundColor: "rgba(255, 255, 255, 0)",
+    height: 40,
+    width: 310,
+    paddingLeft: 15,
+    color: "rgba(255, 255, 255, 1)",
+    alignSelf: "center",
   },
   listItem: {
     flexDirection: "row",
@@ -110,5 +146,10 @@ const styles = StyleSheet.create({
   },
   listItemSport: {
     color: "#3C414B"
+  },
+  instructions: {
+    color: "#777",
+    textAlign: "center",
+    marginTop: 30
   }
 });

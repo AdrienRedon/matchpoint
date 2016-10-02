@@ -19,6 +19,7 @@ export default class SignInScene extends Component {
           </MyAppText>
           <TextInput
             style={styles.input}
+            keyboardType="email-address"
             placeholder="Adresse mail"
           />
           <TextInput
