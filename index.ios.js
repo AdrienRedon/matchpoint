@@ -30,6 +30,7 @@ class matchpoint extends Component {
     return (
       <Navigator
         initialRoute={{ index: 0 }}
+        configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromRight}
         renderScene={(route, navigator) =>
           <MainScene
 

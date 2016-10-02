@@ -27,13 +27,13 @@ export default class SearchScene extends Component {
         return (
           <TouchableHighlight onPress={() => this.props.onForward(club.id)}>
             <View style={styles.listItem}>
-              <Image source={require('../assets/ic_team_own.png')}>
+              <Image source={require('../assets/ic_team_own.png')} style={styles.listItemImg}>
               </Image>
               <View style={styles.listItemInfo}>
-                <MyAppText>{club.name}</MyAppText>
-                <MyAppText>{club.sport}</MyAppText>
+                <MyAppText style={styles.listItemName}>{club.name}</MyAppText>
+                <MyAppText style={styles.listItemSport}>{club.sport}</MyAppText>
               </View>
-              <Image source={require('../assets/ic_chevron_r.png')}>
+              <Image style={styles.listItemChevron} source={require('../assets/ic_chevron_r.png')}>
               </Image>
             </View>
           </TouchableHighlight>
@@ -84,9 +84,28 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   listItem: {
-    flexDirection: "row"
+    flexDirection: "row",
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#E1E1E1"
   },
   listItemInfo: {
-    flex: 1
+    flex: 1,
+    paddingLeft: 15
+  },
+  listItemImg: {
+    height: 30,
+    width: 28
+  },
+  listItemChevron: {
+    height: 10,
+    width: 10,
+    alignSelf: "center"
+  },
+  listItemName: {
+    color: "#E63421"
+  },
+  listItemSport: {
+    color: "#3C414B"
   }
 });
