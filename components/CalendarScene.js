@@ -14,27 +14,27 @@ export default class CalendarScene extends Component {
                 <Header/>
                 <TouchableHighlight onPress={() => this.props.onBack(11623)}>
                     <View style={styles.returnBar}>
-                        <Image source={require('../assets/ic_chevron_l.png')}></Image>
+                        <Image source={require('../assets/ic_chevron_l.png')} style={styles.chevron}></Image>
                         <MyAppText style={styles.returnBarText}>Back to Random Club</MyAppText>
                     </View>
                 </TouchableHighlight>
                 <Image source={require('../assets/img_club.png')} style={styles.backImg}>
-                    <MyAppText style={styles.teammName}>TEAM NAME</MyAppText>
-                    <TouchableHighlight onPress={() => this.props.onBack(11623)} style={styles.followBtn}>
+                    <MyAppText style={styles.teamName}>TEAM NAME</MyAppText>
+                    <TouchableHighlight style={styles.followBtn}>
                         <MyAppText style={styles.followTxt}>Suivre</MyAppText>
                     </TouchableHighlight>
+                    <View style={styles.navBar}>
+                        <TouchableHighlight style={styles.navBarElement}>
+                            <MyAppText style={styles.navBarText}>Calendrier</MyAppText>
+                        </TouchableHighlight>
+                        <TouchableHighlight style={styles.navBarElement}>
+                            <MyAppText style={styles.navBarText}>Classement</MyAppText>
+                        </TouchableHighlight>
+                        <TouchableHighlight style={styles.navBarElement}>
+                            <MyAppText style={styles.navBarText}>Joueurs</MyAppText>
+                        </TouchableHighlight>
+                    </View>
                 </Image>
-                <View style={styles.navBar}>
-                    <TouchableHighlight onPress={() => this.props.onBack(11623)}>
-                        <MyAppText>Calendrier</MyAppText>
-                    </TouchableHighlight>
-                    <TouchableHighlight onPress={() => this.props.onBack(11623)}>
-                        <MyAppText>Classement</MyAppText>
-                    </TouchableHighlight>
-                    <TouchableHighlight onPress={() => this.props.onBack(11623)}>
-                        <MyAppText>Joueurs</MyAppText>
-                    </TouchableHighlight>
-                </View>
                 <View>
                     <MyAppText>PROCHAINS MATCHS</MyAppText>
                 </View>
@@ -46,13 +46,21 @@ export default class CalendarScene extends Component {
 const styles = StyleSheet.create({
     returnBar: {
         flexDirection: "row",
-        backgroundColor: "#3c414b"
+        backgroundColor: "#3c414b",
+        height: 40
+    },
+    chevron: {
+        marginLeft: 10,
+        alignSelf: "center"
     },
     returnBarText: {
-        color: "white"
+        color: "white",
+        marginLeft: 20,
+        alignSelf: "center"
     },
-    teammName: {
-        color: "white"
+    teamName: {
+        color: "white",
+
     },
     followTxt: {
         color: "white"
@@ -66,10 +74,24 @@ const styles = StyleSheet.create({
     },
     navBar: {
         flexDirection: "row",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        backgroundColor: "#1A2735",
+        height: 40
     },
     followBtn: {
-        flexDirection: "row",
-        justifyContent: "flex-end"
+        width: 60,
+        margin: 8,
+        marginBottom: 30,
+        borderRadius: 3,
+        borderWidth: 1,
+        padding: 5,
+        borderColor: "white",
+        alignSelf: "flex-end"
+    },
+    navBarText: {
+        color: "white",
+    },
+    navBarElement: {
+        alignSelf: "center"
     }
 });
