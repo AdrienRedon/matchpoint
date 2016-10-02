@@ -39,23 +39,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "flex-end",
-    backgroundColor: "rgba(26, 39, 53, 0.9)",
+    backgroundColor: "rgba(26, 39, 53, 1)",
     paddingBottom: 50
   },
   btn: {
+    margin: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 2,
     borderWidth: 1,
     padding: 5
   },
   btnTxt: {
+    fontSize: 20,
     color: "white"
   },
   signInBtn: {
-
+    borderColor: "#5E5E5E"
   },
   loginBtn: {
-
+    borderColor: "#3C414D",
+    backgroundColor: "#3C414D"
   }
   
 });
