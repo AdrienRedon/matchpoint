@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, Text, TouchableHighlight } from 'react-native';
 
-export default class ClubsScene extends Component {
+export default class HomeScene extends Component {
   static propTypes = {
     onForward: PropTypes.func.isRequired,
   }
