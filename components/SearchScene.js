@@ -23,13 +23,22 @@ export default class SearchScene extends Component {
   }
 
   render() {
-    contents = this.state.list.map(function (club) {
+    contents = this.state.list.map((club) => {
         return (
           <TouchableHighlight onPress={() => this.props.onForward(club.id)}>
-            <MyAppText>{club.name}</MyAppText>
+            <View style={styles.listItem}>
+              <Image source={require('../assets/ic_team_own.png')}>
+              </Image>
+              <View style={styles.listItemInfo}>
+                <MyAppText>{club.name}</MyAppText>
+                <MyAppText>{club.sport}</MyAppText>
+              </View>
+              <Image source={require('../assets/ic_chevron_r.png')}>
+              </Image>
+            </View>
           </TouchableHighlight>
         );
-     }.bind(this));
+     });
     return (
       <View style={styles.container}>
         <Header/>
@@ -41,7 +50,6 @@ export default class SearchScene extends Component {
                        onSubmitEditing={(value) => this.searchClub(value)} />
           </View>
         </Image>
-        <Text>Liste des clubs</Text>
         {contents}
       </View>
     )
@@ -75,5 +83,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 10,
   },
-
+  listItem: {
+    flexDirection: "row"
+  },
+  listItemInfo: {
+    flex: 1
+  }
 });
